@@ -1,0 +1,76 @@
+<mat-tab-group>
+  <mat-tab label="billing">
+    Content of the billing tab
+  </mat-tab>
+  <mat-tab label="shipping">
+    Content of the shippling tab
+  </mat-tab>
+</mat-tab-group>
+
+<button (click)="openDialog()" mat-raised-button>Open Dialog</button><br>
+
+<button mat-raised-button color="primary">button 1</button>
+<button mat-raised-button color="accent">button 2</button>
+
+<mat-checkbox
+  #showDetails
+  [checked]="isChecked"
+  (change)="onChange($event)"
+  >Show details</mat-checkbox>
+
+<div *ngIf="showDetails.checked">Some details.....</div>
+
+<mat-radio-group value="1">
+  <mat-radio-button value="0">Male</mat-radio-button>
+  <mat-radio-button value="1">Female</mat-radio-button>
+</mat-radio-group>
+
+<mat-select [(ngModel)]="color">
+  <mat-option *ngFor="let color of colors" [value]="color.id">
+    {{ color.name }}
+  </mat-option>
+</mat-select>
+
+<mat-form-field>
+  <input ngModel #username="ngModel" name="username" type="text" matInput placeholder="Username" required>
+  <mat-hint>Type a unique Username.</mat-hint>
+  <span matSuffix>@gmail.com</span>
+  <span matPrefix>krupa.</span>
+  <mat-error *ngIf="username.invalid">
+    The Usename field is required..
+  </mat-error>
+</mat-form-field>
+
+<mat-label>
+  <textarea matInput placeholder="Write text at here..." rows="2"></textarea>
+</mat-label>
+
+<mat-form-field>
+  <input type="text" (focus)="birthdate.open()" [min]="minDate" [max]="maxDate" matInput [matDatepicker]="birthdate">
+  <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+</mat-form-field>
+<mat-datepicker #birthdate touchUi="true"></mat-datepicker><br>
+
+<mat-icon>add_alert</mat-icon>
+
+<h1>Hello</h1>
+<h2> World!!!</h2>
+
+<button mat-button>Button 1</button>
+<button mat-raised-button>Button 2</button>
+<button mat-raised-button color="primary">Primary</button>
+<button mat-raised-button color="accent">Accent</button>
+<button mat-raised-button color="warn">Warn</button>
+<button mat-fab><mat-icon color="primary">check</mat-icon></button>
+
+<mat-chip-list>
+  <mat-chip 
+    *ngFor="let category of categories">
+    {{ category.data }}
+  </mat-chip>
+</mat-chip-list>
+
+<!-- <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner> -->
+<mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+
+<span matTooltip="tooltip" matTooltipPosition="right">Some text...</span>
